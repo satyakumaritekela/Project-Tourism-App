@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--    Stokes of background.-->
+    <solid
+        android:color="#C6EBE0E0"
+        />
+<!--    Corner radius for Image background.-->
+    <corners
+        android:topLeftRadius="@dimen/img_corner"
+        android:topRightRadius="@dimen/img_corner"
+        android:bottomRightRadius="@dimen/img_corner"
+        android:bottomLeftRadius="@dimen/img_corner"
+        />
+</shape>
