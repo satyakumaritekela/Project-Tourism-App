@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SampleTicketActivity">
+
+    <ImageView
+        android:id="@+id/bar_code"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/ic_launcher_background"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/ticket_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10123436536"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/bar_code"
+        android:layout_centerHorizontal="true"
+        />
+
+
+
+    <TextView
+        android:id="@+id/src"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Halifax to Toronto"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/ticket_id"/>
+
+    <TextView
+        android:id="@+id/dst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/departure_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="20/03/2020 to 30/04/2020"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/src"/>
+
+    <TextView
+        android:id="@+id/return_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/departure_date"
+        android:layout_centerHorizontal="true"
+        android:text="$2000"/>
+</RelativeLayout>

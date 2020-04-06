@@ -1,40 +1,81 @@
 package com.dal.tourismapplication
 
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.view.View
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.MultiTransformation
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_place_description.*
+import org.json.JSONException
+import org.json.JSONObject
+import java.util.*
 
 
 class PlaceDescriptionActivity : AppCompatActivity() {
+
+    var locationName: String? = null
+    var city: String? = null
+    var type: String? = null
+    var keyFeatures: String? = null
+    var imagePath: String? = null
+    var locationsList = ArrayList<JSONObject>()
+    var locationObj: JSONObject? = null
+    var btnBook: Button? = null
+    var image: ImageView? = null
+    var location: TextView? = null
+    var keyFeat:TextView? = null
+    var locType:TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_place_description)
 
-        var place_name = txt_locationName;
-        var place_image = image;
-        var book_button = btn_bookTicket;
+        image = findViewById(R.id.image)
+        location = findViewById(R.id.location_tv)
+        keyFeat = findViewById(R.id.keyfeat_content)
+        locType = findViewById(R.id.type_content)
 
-        var placeName = intent.getStringExtra("place name")
-        var imageURL = intent.getStringExtra("place image")
+        val intent = intent
 
+        btnBook = findViewById<Button>(R.id.btn_book)
+        if (intent.getStringExtra("name") != null) {
+            locationName = intent.getStringExtra("name")
+        }
+        if (intent.getStringExtra("dest") != null) {
+            city = intent.getStringExtra("dest")
+        }
+        if (intent.getStringExtra("imagePath") != null) {
+            imagePath = intent.getStringExtra("imagePath")
+        }
+        if (intent.getStringExtra("type") != null) {
+            type = intent.getStringExtra("type")
+        }
+        if (intent.getStringExtra("keyFeatures") != null) {
+            keyFeatures = intent.getStringExtra("keyFeatures")
+        }
 
-        place_name.setText(placeName)
+        Picasso.get().load(imagePath).into(image)
+        location!!.setText(locationName + ", " + city)
+        locType!!.setText(type)
+        keyFeat!!.setText(keyFeatures)
 
-        Picasso.get().load(imageURL).into(place_image)
+        locationsList.indices.forEachIndexed { index, jsonObject ->
+            val obj: JSONObject = locationsList.get(index)
+            try {
+                if (obj["name"].toString().toLowerCase().contains(locationName!!.toLowerCase())) {
+                    locationObj = obj
+                }
+            } catch (e: JSONException) {
+                e.printStackTrace()
+            }
+        }
 
-        book_button.setOnClickListener({
-            val intent = Intent(this, TicketBooking::class.java)
+        btnBook!!.setOnClickListener({
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.putExtra("dest", city)
             startActivity(intent)
         })
+
     }
 }

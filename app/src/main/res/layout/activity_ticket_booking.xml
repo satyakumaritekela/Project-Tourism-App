@@ -1,171 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scrollViewXML"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:clickable="true"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
     tools:context=".TicketBooking">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tv_Total_Amount"
+            android:id="@+id/Source_heading"
             android:layout_width="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            android:text="@string/totalamount"
-            android:textColor="@color/hyperlink"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toStartOf="@id/tv_Total_Amount_number"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Source Destination" />
+
+        <Spinner
+            android:id="@+id/source"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/Source_heading"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="23dp"/>
 
         <TextView
-            android:id="@+id/tv_Total_Amount_number"
+            android:id="@+id/Destination_heading"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@+id/source"
+            android:layout_height="wrap_content"
+            android:text="Destination Destination" />
+
+        <Spinner
+            android:id="@+id/destination"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/Destination_heading"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="65dp" />
+
+        <Button
+            android:id="@+id/depart_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/hyperlink"
-            android:textSize="30sp"
-            app:layout_constraintStart_toEndOf="@id/tv_Total_Amount"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="21.03" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ip_First_Name"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_below="@id/destination"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="20dp"
-            android:hint="@string/First_Name"
-            app:layout_constraintTop_toBottomOf="@+id/tv_Total_Amount"
-            app:layout_constraintStart_toStartOf="parent">
+            android:layout_weight="1"
+            android:text="Depart Date:" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_First_Name"
-                android:layout_width="fill_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="2dp"
-                android:scrollHorizontally="true" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ip_Last_Name"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:hint="@string/Last_Name"
-            app:layout_constraintTop_toBottomOf="@+id/ip_First_Name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_last_Name"
-                android:layout_width="fill_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="2dp"
-                android:scrollHorizontally="true" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ip_layout_email"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            app:helperText="@string/email_address"
-            app:layout_constraintTop_toBottomOf="@+id/ip_Last_Name"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_email"
-                android:layout_width="fill_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="2dp"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:lines="1"
-                android:scrollHorizontally="true" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ip_layout_card_details"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            app:helperText="@string/card_details"
-            app:layout_constraintTop_toBottomOf="@+id/ip_layout_email"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_card_details"
-                android:layout_width="fill_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="2dp"
-                android:hint="@string/card_detail"
-                android:inputType="number"
-                android:maxLines="1"
-                android:lines="1"
-                android:maxLength="16"
-                android:scrollHorizontally="true" />
-        </com.google.android.material.textfield.TextInputLayout>
+        <EditText
+            android:id="@+id/depart_date"
+            android:layout_width="119dp"
+            android:layout_height="48dp"
+            android:layout_below="@id/depart_button"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:ems="10"
+            android:inputType="date"
+            tools:layout_editor_absoluteX="69dp"
+            android:text="30/03/2020"
+            tools:layout_editor_absoluteY="278dp" />
 
         <Button
-            android:id="@+id/btn_book_final"
-            android:layout_width="200dp"
+            android:id="@+id/return_button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="260dp"
+            android:layout_below="@id/destination"
             android:layout_marginTop="30dp"
-            android:background="@color/button_color"
-            android:text="@string/bookTicket"
-            android:textAllCaps="true"
-            android:textColor="@color/button_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ip_layout_card_details" />
+            android:layout_weight="1"
+            android:text="Return Date:" />
+
+        <EditText
+            android:id="@+id/return_date"
+            android:layout_width="128dp"
+            android:layout_height="48dp"
+            android:layout_below="@id/return_button"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="260dp"
+            android:ems="10"
+            android:text="31/03/2020"
+            android:inputType="date"
+            tools:layout_editor_absoluteX="237dp"
+            tools:layout_editor_absoluteY="278dp" />
+
+        <TextView
+            android:id="@+id/price_heading"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/return_date"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="180dp"
+            android:layout_height="wrap_content"
+            android:text="Price:" />
+
+        <EditText
+            android:id="@+id/ticket_price_text"
+            android:layout_width="135dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/price_heading"
+            android:layout_centerHorizontal="true"
+            android:ems="10"
+            android:inputType="text"
+            tools:layout_editor_absoluteX="138dp"
+            tools:layout_editor_absoluteY="135dp" />
+
+        <TextView
+            android:id="@+id/card_heading"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/ticket_price_text"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="180dp"
+            android:layout_height="wrap_content"
+            android:text="Card:" />
+
+        <EditText
+            android:id="@+id/card_number"
+            android:layout_width="248dp"
+            android:layout_height="44dp"
+            android:layout_below="@id/card_heading"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:inputType="number"
+            android:text="1234123412341234"
+            tools:layout_editor_absoluteX="81dp"
+            tools:layout_editor_absoluteY="381dp" />
+
+        <TextView
+            android:id="@+id/cvv_heading"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/card_number"
+            android:layout_marginLeft="180dp"
+            android:layout_height="wrap_content"
+            android:text="CVV:" />
+
+        <EditText
+            android:id="@+id/cvv"
+            android:layout_width="109dp"
+            android:layout_height="51dp"
+            android:layout_below="@id/cvv_heading"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:inputType="number"
+            android:text="123"
+            tools:layout_editor_absoluteX="151dp"
+            tools:layout_editor_absoluteY="455dp" />
 
         <Button
-            android:id="@+id/btn_cancel"
-            android:layout_width="200dp"
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            android:background="@color/button_color"
-            android:text="@string/cancel"
-            android:textAllCaps="true"
-            android:textColor="@color/button_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_book_final" />
+            android:layout_below="@id/cvv"
+            android:layout_centerHorizontal="true"
+            android:text="Submit"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="611dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 
 </ScrollView>
