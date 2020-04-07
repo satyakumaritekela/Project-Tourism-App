@@ -1,7 +1,9 @@
 package com.dal.tourismapplication
 
+import android.content.Context
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +12,7 @@ import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
 import com.journeyapps.barcodescanner.BarcodeEncoder
 
-class SampleTicketActivity: AppCompatActivity() {
+class SampleTicketActivity: MainActivity() {
     private var ticketId: TextView? = null
     private var source2: TextView? = null
     private var destination2: TextView? = null
@@ -21,7 +23,12 @@ class SampleTicketActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sample_ticket)
+        val inflater = this
+            .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val contentView = inflater.inflate(R.layout.activity_sample_ticket, null, false)
+        mNavDrawer?.addView(contentView, 0)
+
+      //  setContentView(R.layout.activity_sample_ticket)
 
         getDetails()
 

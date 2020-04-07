@@ -1,10 +1,12 @@
 package com.dal.tourismapplication
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
 import android.util.Patterns
+import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -21,7 +23,7 @@ import java.net.MalformedURLException
 import java.net.URL
 import java.util.regex.Pattern
 
-class SignupActivity: AppCompatActivity() {
+class SignupActivity: MainActivity() {
     var etEnterEmail: EditText? = null
     var etEnterPassword:EditText? = null
     var etReenterPassword:EditText? = null
@@ -59,7 +61,12 @@ class SignupActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        setContentView(R.layout.activity_signup)
+        //setContentView(R.layout.activity_signup)
+
+        val inflater = this
+            .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val contentView = inflater.inflate(R.layout.activity_signup, null, false)
+        mNavDrawer?.addView(contentView, 0)
 
         val intent = intent
         if (intent.getStringExtra("dest") != null) {
