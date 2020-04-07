@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
@@ -16,7 +17,7 @@ import org.json.JSONException
 import org.json.JSONObject
 import java.util.*
 
-class TicketBooking : AppCompatActivity() {
+class TicketBooking : OptionsMenuActivity() {
 
     var destinationSpinner: Spinner? = null
     var sourceSpinner: Spinner? = null
@@ -47,10 +48,14 @@ class TicketBooking : AppCompatActivity() {
     var priceHeading: TextView? = null
     var cardHeading: TextView? = null
     var cvvHeading: TextView? = null
+    private var toolbar: Toolbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ticket_booking)
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar()!!.setTitle("Tourism Application");
 
         getDetails()
         getPlaceDetails()

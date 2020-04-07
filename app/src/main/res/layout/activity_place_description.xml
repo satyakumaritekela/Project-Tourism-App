@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".PlaceDescriptionActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
 
     <ImageView
         android:id="@+id/image"
@@ -54,15 +62,15 @@
 
     <Button
         android:id="@+id/btn_book"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="Book Ticket"
-        android:layout_marginTop="30dp"
         android:layout_below="@+id/keyfeat_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="#04ACF8"
+        android:text="Book Ticket"
         android:textColor="@color/colorwhite"
-        android:background="@color/lightblue"
-        style="@style/Widget.AppCompat.Button.Colored"
 
         />
 

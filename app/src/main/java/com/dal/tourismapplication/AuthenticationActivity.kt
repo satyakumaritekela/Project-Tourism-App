@@ -2,11 +2,11 @@ package com.dal.tourismapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.android.volley.DefaultRetryPolicy
 import com.android.volley.Request
 import com.android.volley.Response
@@ -17,17 +17,22 @@ import org.json.JSONObject
 import java.net.MalformedURLException
 import java.net.URL
 
-class AuthenticationActivity: AppCompatActivity() {
+class AuthenticationActivity: OptionsMenuActivity() {
     var btnSubmitCode: Button? = null
     var inputCode: EditText? = null
     var email: String? = null
     var authToken: String? = null
     var dest: String? = null
+    private var toolbar: Toolbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_authentication)
         val intent = intent
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar()!!.setTitle("Tourism Application");
 
         if (intent.getStringExtra("email") != null) {
             email = intent.getStringExtra("email")

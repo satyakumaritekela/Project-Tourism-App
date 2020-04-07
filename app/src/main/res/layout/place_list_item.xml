@@ -6,8 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="@dimen/main_item_margin"
     android:layout_marginRight="@dimen/main_item_margin"
-    android:layout_marginBottom="@dimen/main_item_margin"
-    >
+    android:layout_marginBottom="@dimen/main_item_margin">
 
     <ImageView
         android:id="@+id/img_place_item"

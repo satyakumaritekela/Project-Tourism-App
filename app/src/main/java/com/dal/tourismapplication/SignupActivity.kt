@@ -3,7 +3,6 @@ package com.dal.tourismapplication
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
@@ -11,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.android.volley.DefaultRetryPolicy
 import com.android.volley.Request
 import com.android.volley.Response
@@ -23,7 +23,7 @@ import java.net.MalformedURLException
 import java.net.URL
 import java.util.regex.Pattern
 
-class SignupActivity: MainActivity() {
+class SignupActivity: OptionsMenuActivity() {
     var etEnterEmail: EditText? = null
     var etEnterPassword:EditText? = null
     var etReenterPassword:EditText? = null
@@ -41,6 +41,7 @@ class SignupActivity: MainActivity() {
     var inputLayoutReenterPassword:TextInputLayout? = null
     var inputLayoutFirstName: TextInputLayout? = null
     var destination: String? = null
+    private var toolbar: Toolbar? = null
 
     val PATTERNPASSWORD = Pattern.compile(
         "^" +
@@ -59,14 +60,16 @@ class SignupActivity: MainActivity() {
             "at least 1 capital letter\n" +
             "at least 1 small letter\n"
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-        //setContentView(R.layout.activity_signup)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_signup)
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar()!!.setTitle("Tourism Application");
 
         val inflater = this
             .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val contentView = inflater.inflate(R.layout.activity_signup, null, false)
-        mNavDrawer?.addView(contentView, 0)
 
         val intent = intent
         if (intent.getStringExtra("dest") != null) {
@@ -80,14 +83,12 @@ class SignupActivity: MainActivity() {
                 val obj: JSONObject = JSONObject()
                 try {
                     obj.put("firstName", etFirstName!!.text.toString().trim { it <= ' ' })
-                    obj.put("gender", gender!!.trim { it <= ' ' })
                     obj.put("lastName", etLastName!!.text.toString().trim { it <= ' ' })
                     obj.put(
                         "password",
                         etEnterPassword!!.text.toString().trim { it <= ' ' }
                     )
                     obj.put("email", etEnterEmail!!.text.toString().trim { it <= ' ' })
-                    obj.put("phoneNo", etPhoneNumber!!.text.toString().trim { it <= ' ' })
                 } catch (e: JSONException) {
                     e.printStackTrace()
                 }

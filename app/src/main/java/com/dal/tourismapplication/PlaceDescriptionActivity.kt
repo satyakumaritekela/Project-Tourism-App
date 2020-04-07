@@ -6,13 +6,14 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.squareup.picasso.Picasso
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.*
 
 
-class PlaceDescriptionActivity : AppCompatActivity() {
+class PlaceDescriptionActivity : OptionsMenuActivity() {
 
     var locationName: String? = null
     var city: String? = null
@@ -26,10 +27,14 @@ class PlaceDescriptionActivity : AppCompatActivity() {
     var location: TextView? = null
     var keyFeat:TextView? = null
     var locType:TextView? = null
+    private var toolbar: Toolbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_place_description)
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar()!!.setTitle("Tourism Application");
 
         image = findViewById(R.id.image)
         location = findViewById(R.id.location_tv)

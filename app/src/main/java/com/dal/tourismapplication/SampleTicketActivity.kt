@@ -1,18 +1,16 @@
 package com.dal.tourismapplication
 
-import android.content.Context
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
 import com.journeyapps.barcodescanner.BarcodeEncoder
 
-class SampleTicketActivity: MainActivity() {
+class SampleTicketActivity: OptionsMenuActivity() {
     private var ticketId: TextView? = null
     private var source2: TextView? = null
     private var destination2: TextView? = null
@@ -20,15 +18,14 @@ class SampleTicketActivity: MainActivity() {
     private var returnDate2: TextView? = null
     private var price: TextView? = null
     private var bCode: ImageView? = null
+    private var toolbar: Toolbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val inflater = this
-            .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val contentView = inflater.inflate(R.layout.activity_sample_ticket, null, false)
-        mNavDrawer?.addView(contentView, 0)
-
-      //  setContentView(R.layout.activity_sample_ticket)
+        setContentView(R.layout.activity_sample_ticket)
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar()!!.setTitle("Tourism Application");
 
         getDetails()
 

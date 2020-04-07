@@ -3,11 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".TicketBooking">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
 
         <TextView
             android:id="@+id/Source_heading"
@@ -46,10 +56,12 @@
 
         <Button
             android:id="@+id/depart_button"
-            android:layout_width="wrap_content"
+            android:layout_width="119dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/destination"
             android:layout_marginLeft="20dp"
+            android:background="#04ACF8"
+            android:textColor="@color/colorwhite"
             android:layout_marginTop="30dp"
             android:layout_weight="1"
             android:text="Depart Date:" />
@@ -69,9 +81,11 @@
 
         <Button
             android:id="@+id/return_button"
-            android:layout_width="wrap_content"
+            android:layout_width="119dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="260dp"
+            android:background="#04ACF8"
+            android:textColor="@color/colorwhite"
             android:layout_below="@id/destination"
             android:layout_marginTop="30dp"
             android:layout_weight="1"
@@ -94,7 +108,7 @@
             android:id="@+id/price_heading"
             android:layout_width="wrap_content"
             android:layout_below="@id/return_date"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="180dp"
             android:layout_height="wrap_content"
             android:text="Price:" />
@@ -103,7 +117,7 @@
             android:id="@+id/ticket_price_text"
             android:layout_width="135dp"
             android:layout_height="45dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_below="@id/price_heading"
             android:layout_centerHorizontal="true"
             android:ems="10"
@@ -115,7 +129,7 @@
             android:id="@+id/card_heading"
             android:layout_width="wrap_content"
             android:layout_below="@id/ticket_price_text"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="180dp"
             android:layout_height="wrap_content"
             android:text="Card:" />
@@ -126,7 +140,7 @@
             android:layout_height="44dp"
             android:layout_below="@id/card_heading"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:ems="10"
             android:inputType="number"
             android:text="1234123412341234"
@@ -136,7 +150,7 @@
         <TextView
             android:id="@+id/cvv_heading"
             android:layout_width="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_below="@id/card_number"
             android:layout_marginLeft="180dp"
             android:layout_height="wrap_content"
@@ -148,7 +162,7 @@
             android:layout_height="51dp"
             android:layout_below="@id/cvv_heading"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:ems="10"
             android:inputType="number"
             android:text="123"
@@ -161,6 +175,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_below="@id/cvv"
+            android:background="#04ACF8"
+            android:textColor="@color/colorwhite"
             android:layout_centerHorizontal="true"
             android:text="Submit"
             tools:layout_editor_absoluteX="161dp"

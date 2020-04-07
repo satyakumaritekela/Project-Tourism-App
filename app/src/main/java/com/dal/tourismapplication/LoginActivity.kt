@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.android.volley.DefaultRetryPolicy
 import com.android.volley.Request
 import com.android.volley.Response
@@ -24,7 +25,7 @@ import java.net.MalformedURLException
 import java.net.URL
 import java.util.regex.Pattern
 
-class LoginActivity: AppCompatActivity() {
+class LoginActivity: OptionsMenuActivity() {
 
     var emailEditText: TextInputEditText? = null
     var passwordEditText:TextInputEditText? = null
@@ -36,6 +37,7 @@ class LoginActivity: AppCompatActivity() {
     var password: String? = null
     var backPressSingleTime = false
     var destination: String? = null
+    private var toolbar: Toolbar? = null
 
     val PATTERNPASSWORD = Pattern.compile(
         "^" +
@@ -52,6 +54,9 @@ class LoginActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar()!!.setTitle("Tourism Application");
 
         val intent = intent
         if (intent.getStringExtra("dest") != null) {
@@ -80,8 +85,7 @@ class LoginActivity: AppCompatActivity() {
 
         btnCreateAccount!!.setOnClickListener(View.OnClickListener {
             val intentToSignup =
-                Intent(applicationContext, SignupActivity::class.java)
-            intentToSignup.putExtra("dest", destination)
+                Intent(this, SignupActivity::class.java)
             startActivity(intentToSignup)
         })
 
